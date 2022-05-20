@@ -1,0 +1,12 @@
+{
+  "name": "utilib",
+  "version": "1.0.0",
+  "description": "JavaScript utility library at its best",
+  "author": "Matthieu Dambrune <matthieu.dambrune@gmail.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/madmoizo/utilib.git"
+  }
+}
+  
