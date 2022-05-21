@@ -4,5 +4,5 @@
  * @returns {boolean}
  */
 export default function isUUID (value) {
-  return /([0-9a-f]{8})([0-9a-f]{4})([0-9a-f]{4})([0-9a-f]{4})([0-9a-f]{12})/.test(value)
+  return /([0-9a-f]{8})-([0-9a-f]{4})-([0-9a-f]{4})-([0-9a-f]{4})-([0-9a-f]{12})/.test(value)
 }
