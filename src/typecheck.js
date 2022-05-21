@@ -1,3 +1,4 @@
+import has from './has.js'
 import isString from './isString.js'
 import isFunction from './isFunction.js'
 import isArray from './isArray.js'
