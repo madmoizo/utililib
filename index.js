@@ -1,5 +1,6 @@
 export { default as addHeadTag } from './src/addHeadTag.js'
 export { default as capitalizeFirstLetter } from './src/capitalizeFirstLetter.js'
+export { default as cloneDate } from './src/cloneDate.js'
 export { default as has } from './src/has.js'
 export { default as imageToBase64 } from './src/imageToBase64.js'
 export { default as isArray } from './src/isArray.js'
