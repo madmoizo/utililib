@@ -51,6 +51,12 @@ function typecheckItem ({ name, value, type, required }) {
           required
         })
 
+        for (const key of Object.keys(value)) {
+          if (!has(type[1], key)) {
+            throw new Error(`\`${name}\` params does not accept \`${key}\` property`)
+          }
+        }
+
         for (const [propname, propconf] of Object.entries(type[1])) {
           typecheckItem({
             name: `${name}.${propname}`,
