@@ -22,9 +22,11 @@ const TYPES = {
 
 /**
  * Check the existence and type validity of a user input
- * @param {object} params
  * @param {object} options
- * @param {function} [options.onError]
+ * @param {string} options.name
+ * @param {any} options.value
+ * @param {string|Array<string>} options.type
+ * @param {boolean} [options.required]
  */
 function typecheckItem ({ name, value, type, required }) {
   if (value === undefined) {
@@ -61,12 +63,12 @@ function typecheckItem ({ name, value, type, required }) {
         let isValid = false
         let error = null
 
-        for (const stype of type) {
+        for (const someType of type) {
           try {
             typecheckItem({
               name,
               value,
-              type: stype,
+              type: someType,
               required
             })
             isValid = true
@@ -87,19 +89,18 @@ function typecheckItem ({ name, value, type, required }) {
 
 /**
  * Check the existence and type validity of a user input
- * @param {object} params
  * @param {object} options
- * @param {function} [options.onError]
+ * @param {object} options.params
+ * @param {Error} [options.error]
  */
-export default function typecheck (params, options = {}) {
-  const defaultError = (message) => { throw new Error(message) }
-  const onError = options.onError ?? defaultError
+export default function typecheck ({ params, error }) {
+  error ??= Error
 
   try {
     for (const [paramName, paramOptions] of Object.entries(params)) {
       typecheckItem({ name: paramName, ...paramOptions })
     }
-  } catch (error) {
-    onError(error.message)
+  } catch (err) {
+    throw new error(err.message)
   }
 }
