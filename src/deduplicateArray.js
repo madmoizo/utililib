@@ -1,13 +1,13 @@
 /**
  * Deduplicate an array of objects
- * @param {Array<object>} arr
+ * @param {Array<object>} array
  * @param {Array<string>} [uniqueKeys=[]]
  * @return {Array<object>}
  */
-export default function deduplicateArray (arr, uniqueKeys = []) {
-  return arr
+export default function deduplicateArray (array, uniqueKeys = []) {
+  return array
     .filter((value, index) => {
-      return index === arr.findIndex(item => {
+      return index === array.findIndex(item => {
         for (const key of uniqueKeys) {
           if (item[key] !== value[key]) {
             return false
