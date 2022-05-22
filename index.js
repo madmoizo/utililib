@@ -5,6 +5,7 @@ export { default as capitalizeFirstLetter } from './src/capitalizeFirstLetter.js
 export { default as cloneDate } from './src/cloneDate.js'
 export { default as deduplicateArray } from './src/deduplicateArray.js'
 export { default as getRandomElement } from './src/getRandomElement.js'
+export { default as getTimestampInSeconds } from './src/getTimestampInSeconds.js'
 export { default as has } from './src/has.js'
 export { default as imageToBase64 } from './src/imageToBase64.js'
 export { default as isAfterDate } from './src/isAfterDate.js'
