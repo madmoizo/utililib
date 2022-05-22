@@ -4,13 +4,10 @@
  * @param {object} options
  * @param {number} [options.timeout=30000] -in ms
  * @param {number} [options.interval=50] - in ms
- * @param {string} [options.rejectMessage]
- * @param {function} [options.onReject]
  */
-export default function waitUntil (resolveCondition, { timeout, interval, rejectMessage, onReject }) {
+export default function waitUntil (resolveCondition, { timeout, interval }) {
   timeout ??= 30000
   interval ??= 50
-  rejectMessage ??= 'waitUntil: timeout'
 
   // Resolve immediately if the condition is already fullfiled
   if (resolveCondition()) {
@@ -21,8 +18,7 @@ export default function waitUntil (resolveCondition, { timeout, interval, reject
   return new Promise((resolve, reject) => {
     const timeoutId = setTimeout(() => {
     clearInterval(intervalId)
-    onReject?.()
-    reject(new Error(rejectMessage))
+    reject(new Error('condition not resolved before timeout'))
     }, timeout)
 
     const intervalId = setInterval(() => {
