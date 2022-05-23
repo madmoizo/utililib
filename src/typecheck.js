@@ -10,11 +10,15 @@ import isNull from './isNull.js'
 
 
 const TYPES = {
+  // Bypass
+  any: () => true,
+  // Real types
   array: isArray,
+  boolean: isBoolean,
   function: isFunction,
   object: isObject,
   string: isString,
-  boolean: isBoolean,
+  // Value
   null: isNull,
   false: isFalse,
   true: isTrue
