@@ -96,18 +96,11 @@ function typecheckItem ({ name, value, type, required }) {
 
 /**
  * Check the existence and type validity of a user input
- * @param {object} options
- * @param {object} options.params
- * @param {Error} [options.error]
+ * @param {object} params
+ * @returns {void}
  */
-export default function typecheck ({ params, error }) {
-  error ??= Error
-
-  try {
-    for (const [paramName, paramOptions] of Object.entries(params)) {
-      typecheckItem({ name: paramName, ...paramOptions })
-    }
-  } catch (err) {
-    throw new error(err.message)
+export default function typecheck (params) {
+  for (const [paramName, paramOptions] of Object.entries(params)) {
+    typecheckItem({ name: paramName, ...paramOptions })
   }
 }
