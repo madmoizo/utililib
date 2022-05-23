@@ -9,8 +9,6 @@ import isNullish from './isNullish.js'
  * @returns {boolean}
  */
 export default function has (value, key) {
-  return isNullish(value)
-    ? false
-    : Object.prototype.hasOwnProperty.call(value, key)
+  return !isNullish(value) && Object.prototype.hasOwnProperty.call(value, key)
 }
   
