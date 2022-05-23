@@ -4,5 +4,5 @@
  * @returns {string}
  */
 export default function undashUUID (str) {
-  return str.replace(/-/g, '')
+  return str.replace(/([0-9a-f]{8})-([0-9a-f]{4})-([0-9a-f]{4})-([0-9a-f]{4})-([0-9a-f]{12})/, '$1$2$3$4$5')
 }
