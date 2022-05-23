@@ -6,7 +6,7 @@
  * @param {number} [options.interval=50] - in ms
  */
 export default function waitUntil (resolveCondition, options = {}) {
-  const timeout = option.timeout ?? 30000
+  const timeout = options.timeout ?? 30000
   const interval = options.interval ?? 50
 
   // Resolve immediately if the condition is already fullfiled
