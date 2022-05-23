@@ -10,7 +10,7 @@
   },
   "type": "module",
   "main": "index.js",
-  "script": {
+  "scripts": {
     "postversion": "git push && git push --follow-tags"
   }
 }
