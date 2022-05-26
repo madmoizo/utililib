@@ -9,7 +9,7 @@
 
 # What is this useful for ?
 
-Utililib is an utility librairy which will always be your loyal companion during your adventures in the ECMAScript world.
+Utililib is a utility librairy which will always be your loyal companion during your adventures in the javascript world.
 
 # Browser support
 
