@@ -13,7 +13,7 @@ Utililib is a utility librairy which will always be your loyal companion during 
 
 # Browser support
 
-This library targets modern browsers, as in Chrome, Firefox, Safari, and other browsers that use those engines, such as Edge. IE is not supported. If you have to target much older versions of those browsers, you can still use a transpiler.
+This library targets modern browsers, as in Chrome, Firefox, Safari, and other browsers that use those engines, such as Edge. If you have to target much older versions of those browsers, use a transpiler.
 
 # Changes
 
