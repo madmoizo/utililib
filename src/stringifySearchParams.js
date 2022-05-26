@@ -1,3 +1,6 @@
+import isDate from './isDate.js'
+
+
 /**
  * Transform a dictionary into a stringified url searchParams
  * @param {object} searchParams
