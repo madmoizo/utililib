@@ -17,7 +17,7 @@
   "extensions": [
     "dbaeumer.vscode-eslint",
     "editorconfig.editorconfig",
-    "oderwat.indent-rainbow",
+    "oderwat.indent-rainbow"
   ],
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
