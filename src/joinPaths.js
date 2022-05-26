@@ -8,7 +8,7 @@ export default function joinPaths (...paths) {
     .filter(path => path)
     .join('/')
     // Remove duplicate slashs
-    // https://regex101.com/r/O6PKw4/1
-    .replace(/(^https?:\/)|(\/){2,}/g, '$1$2')
+    // https://regex101.com/r/LtXqoZ/1
+    .replace(/([^:]\/)\/+/g, '$1')
 }
   
