@@ -1,3 +1,6 @@
+import getFileExtension from './getFileExtension.js'
+
+
 /**
  * Convert an image to base64 string
  * @param {string} src - URL or base64
@@ -7,11 +10,11 @@
  * @param {number} [options.cropWidth]
  * @param {number} [options.cropHeight]
  * @param {number} [options.quality]
- * @return {string} - base64 
+ * @return {string} - base64
  */
 export default function imageToBase64 (src, { width, height, cropWidth, cropHeight, quality }) {
   if (!src) {
-    throw new Error('imageToBase64 requires `src` property')
+    throw new Error('requires at least one argument')
   }
 
   width = Number(width) || 0
@@ -20,9 +23,10 @@ export default function imageToBase64 (src, { width, height, cropWidth, cropHeig
   cropWidth = Number(cropWidth) || 0
   quality = Number(quality) || 0.8
 
-  const mime = src.includes('data:image/')
-    ? src.substring('data:image/'.length, src.indexOf(';base64'))
-    : 'jpeg'
+  const extension = getFileExtension(src) ?? 'jpeg'
+  const mime = extension === 'jpg'
+    ? `image/jpeg`
+    : `image/${extension}`
 
   return new Promise((resolve) => {
     const image = new Image()
@@ -49,7 +53,7 @@ export default function imageToBase64 (src, { width, height, cropWidth, cropHeig
       ctx.imageSmoothingQuality = 'high'
       ctx.drawImage(image, 0, 0, w, h)
       // Resolve the base64
-      const base64 = canvas.toDataURL(`image/${mime}`, quality)
+      const base64 = canvas.toDataURL(mime, quality)
       resolve(base64)
     }
   })
