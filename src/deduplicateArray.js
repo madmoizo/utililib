@@ -1,20 +1,29 @@
+import isObject from './isObject.js'
+
+
 /**
  * Deduplicate an array of objects
- * @param {Array<object>} array
+ * @param {Array<any>} array
  * @param {Array<string>} [uniqueKeys=[]]
- * @return {Array<object>}
+ * @return {Array<any>}
  */
 export default function deduplicateArray (array, uniqueKeys = []) {
-  return array
-    .filter((value, index) => {
-      return index === array.findIndex(item => {
-        for (const key of uniqueKeys) {
-          if (item[key] !== value[key]) {
-            return false
-          }
+  return array.filter((value, index) => {
+    // findIndex will always return the first index matching the condition
+    return index === array.findIndex(compare => {
+      if (isObject(value)) {
+        if (isObject(compare)) {
+          const keys = uniqueKeys.length
+            ? uniqueKeys
+            : Object.keys(value)
+
+          return keys.every(key => value[key] === compare[key])
+        } else {
+          return false
         }
-        return true
+      } else {
+        return value === compare
+      }
     })
   })
 }
-  
