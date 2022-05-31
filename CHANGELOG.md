@@ -1,11 +1,15 @@
+# 2.0.0
+
+- feature: add `getDeepValue`
+
 # 1.9.0
 
 - feature: add `getFileExtension`
 - refactor(imageToBase64): use `getFileExtension` for a more accurate extension detection
 
 # 1.8.0
- 
-- feature: add `stringifySearchParams` 
+
+- feature: add `stringifySearchParams`
 - build: add dependabot
 
 # 1.7.1
@@ -15,12 +19,12 @@
 # 1.7.0
 
 - feature(typecheck): add new type `any`
- 
+
 # 1.6.0
 
 - refactor(typecheck): remove `options` second argument
 - feature(has): support any value not only object
- 
+
 # 1.4.0
 
 - fix(undashUUID): replace generic regex by uuid pattern
