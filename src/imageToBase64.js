@@ -5,6 +5,7 @@ import getFileExtension from './getFileExtension.js'
  * Convert an image to base64 string
  * @param {string} src - URL or base64
  * @param {object} options
+ * @param {number} [options.extension]
  * @param {number} [options.width]
  * @param {number} [options.height]
  * @param {number} [options.cropWidth]
@@ -12,18 +13,18 @@ import getFileExtension from './getFileExtension.js'
  * @param {number} [options.quality]
  * @return {string} - base64
  */
-export default function imageToBase64 (src, { width, height, cropWidth, cropHeight, quality }) {
+export default function imageToBase64 (src, { extension, width, height, cropWidth, cropHeight, quality }) {
+  // Cast options to number
   width = Number(width) || 0
   height = Number(height) || 0
   cropHeight = Number(cropHeight) || 0
   cropWidth = Number(cropWidth) || 0
   quality = Number(quality) || 0.8
-
   // Extract the file extension from the source
-  const extension = getFileExtension(src)
+  extension ??= getFileExtension(src)
 
   if (!extension) {
-    throw new Error('Cannot retrieve the file extension')
+    throw new Error('Cannot retrieve the file extension. You MUST specify the `extension` option.')
   }
 
   // jpg is the only exception
