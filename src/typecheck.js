@@ -30,10 +30,10 @@ const TYPES = {
  * @param {object} options
  * @param {string} options.name
  * @param {any} options.value
- * @param {string|Array<string>} options.type
- * @param {boolean} [options.required]
+ * @param {string | Array<string>} options.type
+ * @param {boolean} [options.required=false]
  */
-function typecheckItem ({ name, value, type, required }) {
+function typecheckItem ({ name, value, type, required = false }) {
   if (value === undefined) {
     if (required) {
       throw new Error(`\`${name}\` is a required param but is missing`)
