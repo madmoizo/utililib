@@ -7,7 +7,7 @@ import isObject from './isObject.js'
  * @param {object} options
  * @param {object} options.source
  * @param {object} options.target
- * @param {object} options.exceptions
+ * @param {object} [options.exceptions={}]
  * @return {void}
  */
 export default function mergeObject ({ source, target, exceptions = {} }) {
