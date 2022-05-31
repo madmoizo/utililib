@@ -1,8 +1,8 @@
 /**
  * Remove dashes from a string
- * @param {string} value
+ * @param {string} string
  * @returns {string}
  */
-export default function undashUUID (str) {
-  return str.replace(/([0-9a-f]{8})-([0-9a-f]{4})-([0-9a-f]{4})-([0-9a-f]{4})-([0-9a-f]{12})/, '$1$2$3$4$5')
+export default function undashUUID (string) {
+  return string.replace(/([0-9a-f]{8})-([0-9a-f]{4})-([0-9a-f]{4})-([0-9a-f]{4})-([0-9a-f]{12})/, '$1$2$3$4$5')
 }
