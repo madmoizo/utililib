@@ -7,19 +7,21 @@ import isDate from './isDate.js'
  * @returns {string}
  */
 export default function stringifySearchParams (searchParams) {
-  let requestUrl = ''
+  searchParams ??= {}
 
-  if (searchParams) {
-    requestUrl = Object.entries(searchParams)
-      .filter(([key, value]) => value !== undefined)
-      .map(([key, value]) => {
-        if (isDate(value)) {
-          value = value.toISOString()
-        }
-        return `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
-      })
-      .join('&')
-  }
+  let requestUrl = new URLSearchParams(
+    Object.fromEntries(
+      Object.entries(searchParams)
+        .filter(([key, value]) => value !== undefined)
+        .map(([key, value]) => {
+          if (isDate(value)) {
+            value = value.toISOString()
+          }
+          return [key, value]
+        })
+    )
+  ).toString()
+
   // Add leading '?'
   if (requestUrl) {
     requestUrl = `?${requestUrl}`
