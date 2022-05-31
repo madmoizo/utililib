@@ -1,4 +1,9 @@
-# 2.0.0
+# 1.11.0
+
+- feature: add `snakeToCamel`
+- feature(imageToBase64): add `extension` option. If the extension cannot be retrieved from the `src`, you can specify it manually.
+
+# 1.10.0
 
 - feature: add `getDeepValue`
 
