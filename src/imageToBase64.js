@@ -13,17 +13,20 @@ import getFileExtension from './getFileExtension.js'
  * @return {string} - base64
  */
 export default function imageToBase64 (src, { width, height, cropWidth, cropHeight, quality }) {
-  if (!src) {
-    throw new Error('requires at least one argument')
-  }
-
   width = Number(width) || 0
   height = Number(height) || 0
   cropHeight = Number(cropHeight) || 0
   cropWidth = Number(cropWidth) || 0
   quality = Number(quality) || 0.8
 
-  const extension = getFileExtension(src) ?? 'jpeg'
+  // Extract the file extension from the source
+  const extension = getFileExtension(src)
+
+  if (!extension) {
+    throw new Error('Cannot retrieve the file extension')
+  }
+
+  // jpg is the only exception
   const mime = extension === 'jpg'
     ? `image/jpeg`
     : `image/${extension}`
