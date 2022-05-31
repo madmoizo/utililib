@@ -1,18 +1,30 @@
+import has from './has.js'
+import isObject from './isObject.js'
+
+
 /**
- * Transform a string representation of a date into a javascript Date
+ * Merge an object into an other with optionals exceptions
  * @param {object} options
- * @param {object} source
- * @param {object} target
- * @param {object} exceptions
+ * @param {object} options.source
+ * @param {object} options.target
+ * @param {object} options.exceptions
  * @return {void}
  */
 export default function mergeObject ({ source, target, exceptions = {} }) {
   for (const [key, value] of Object.entries(source)) {
-    if (exceptions[key]) {
-      exceptions[key](value)
+    if (isObject(value)) {
+      if (!has(target, key)) {
+        target[key] = {}
+      }
+      mergeObject({ source: value, target: target[key], exceptions: exceptions[key] ?? {} })
     } else {
-      target[key] = value
+      if (has(exceptions, key)) {
+        if (exceptions[key] !== false) {
+          exceptions[key]({ target, key, value })
+        }
+      } else {
+        target[key] = value
+      }
     }
   }
 }
-    
