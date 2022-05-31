@@ -17,8 +17,8 @@ export default function waitUntil (resolveCondition, options = {}) {
   // Or wait until it happens
   return new Promise((resolve, reject) => {
     const timeoutId = setTimeout(() => {
-    clearInterval(intervalId)
-    reject(new Error('condition not resolved before timeout'))
+      clearInterval(intervalId)
+      reject(new Error('condition not resolved before timeout'))
     }, timeout)
 
     const intervalId = setInterval(() => {
