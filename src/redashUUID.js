@@ -1,8 +1,8 @@
 /**
  * Add dashes to a string with UUID format
- * @param {string} string
+ * @param {string} value
  * @returns {string}
  */
-export default function redashUUID (string) {
-  return string.replace(/([0-9a-f]{8})([0-9a-f]{4})([0-9a-f]{4})([0-9a-f]{4})([0-9a-f]{12})/, '$1-$2-$3-$4-$5')
+export default function redashUUID (value) {
+  return value.replace(/([0-9a-f]{8})([0-9a-f]{4})([0-9a-f]{4})([0-9a-f]{4})([0-9a-f]{12})/, '$1-$2-$3-$4-$5')
 }
