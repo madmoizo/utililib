@@ -33,8 +33,11 @@ jspm_packages/
 # Yarn Integrity file
 .yarn-integrity
 
+# NPM Integrity file
+package-lock.json
+
 # generate output
 dist
 
-#
+# vscode
 .vscode
