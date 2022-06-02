@@ -1,3 +1,7 @@
+# 1.12.0
+
+- feat: add `addEventListener`. the returned value is a function which will remove the event listener.
+
 # 1.11.0
 
 - feature: add `snakeToCamel`

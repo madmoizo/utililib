@@ -1,6 +1,7 @@
+export { default as addEventListener } from './src/addEventListener.js'
+export { default as addHeadTag } from './src/addHeadTag.js'
 export { default as arrayToMap } from './src/arrayToMap.js'
 export { default as arrayToObject } from './src/arrayToObject.js'
-export { default as addHeadTag } from './src/addHeadTag.js'
 export { default as capitalizeFirstLetter } from './src/capitalizeFirstLetter.js'
 export { default as cloneDate } from './src/cloneDate.js'
 export { default as deduplicateArray } from './src/deduplicateArray.js'
