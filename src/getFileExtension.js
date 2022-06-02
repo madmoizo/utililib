@@ -8,7 +8,7 @@ export default function getFileExtension (file) {
     return src.split(/[#?]/)[0].split('.').pop().trim()
   }
   if (isBase64(file)) {
-    return file.substring('data:image/'.length, file.indexOf(';base64'))
+    return file.match(/^data:.+\/(.+);base64,/)[1]
   }
 
   return null
