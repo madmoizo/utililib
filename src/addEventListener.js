@@ -1,5 +1,5 @@
 /**
- * Convert an array of objects to a Map
+ * Add an event listener and provide an handler to remove it
  * @param {EventTarget} element
  * @param {string} event
  * @param {function} listener
