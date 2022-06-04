@@ -1,21 +1,24 @@
 import has from './has.js'
-import isString from './isString.js'
-import isFunction from './isFunction.js'
 import isArray from './isArray.js'
-import isObject from './isObject.js'
 import isBoolean from './isBoolean.js'
-import isTrue from './isTrue.js'
 import isFalse from './isFalse.js'
+import isFunction from './isFunction.js'
 import isNull from './isNull.js'
+import isNumber from './isNumber.js'
+import isObject from './isObject.js'
+import isString from './isString.js'
+import isTrue from './isTrue.js'
 
 
 const TYPES = {
   // Bypass
   any: () => true,
+  unknown: () => true,
   // Real types
   array: isArray,
   boolean: isBoolean,
   function: isFunction,
+  number: isNumber,
   object: isObject,
   string: isString,
   // Value
@@ -36,12 +39,12 @@ const TYPES = {
 function typecheckItem ({ name, value, type, required = false }) {
   if (value === undefined) {
     if (required) {
-      throw new Error(`\`${name}\` is a required param but is missing`)
+      throw new RangeError(`\`${name}\` is required but missing`)
     }
   } else {
     if (isString(type)) {
       if (!TYPES[type](value)) {
-        throw new Error(`\`${name}\` value \`${value}\` does not match the \`${type}\` type`)
+        throw new TypeError(`value of \`${name}\` does not match the required type \`${type}\``)
       }
     } else if (isArray(type)) {
       if (
@@ -49,16 +52,11 @@ function typecheckItem ({ name, value, type, required = false }) {
         type[0] === 'object' &&
         isObject(type[1])
       ) {
-        typecheckItem({
-          name,
-          value,
-          type: type[0],
-          required
-        })
+        typecheckItem({ name, value, required, type: type[0] })
 
         for (const key of Object.keys(value)) {
           if (!has(type[1], key)) {
-            throw new Error(`\`${name}\` params does not accept \`${key}\` property`)
+            throw new RangeError(`\`${name}\` does not accept \`${key}\` property`)
           }
         }
 
@@ -66,31 +64,22 @@ function typecheckItem ({ name, value, type, required = false }) {
           typecheckItem({
             name: `${name}.${propname}`,
             value: value[propname],
-            type: propconf.type,
-            required: propconf.required
+            required: propconf.required,
+            type: propconf.type
           })
         }
       } else {
-        let isValid = false
-        let error = null
-
-        for (const someType of type) {
+        const isValid = type.some(t => {
           try {
-            typecheckItem({
-              name,
-              value,
-              type: someType,
-              required
-            })
-            isValid = true
-            break
-          } catch (e) {
-            error = e
+            typecheckItem({ name, value, required, type: t })
+            return true
+          } catch {
+            return false
           }
-        }
+        })
 
         if (!isValid) {
-          throw error
+          throw new TypeError(`value of \`${name}\` does not match one of the required types \`${type}\``)
         }
       }
     }
