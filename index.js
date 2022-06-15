@@ -43,4 +43,5 @@ export { default as stringifySearchParams } from './src/stringifySearchParams.js
 export { default as typecheck } from './src/typecheck.js'
 export { default as unaccent } from './src/unaccent.js'
 export { default as undashUUID } from './src/undashUUID.js'
+export { default as veryLastIndexOf } from './src/veryLastIndexOf.js'
 export { default as waitUntil } from './src/waitUntil.js'
