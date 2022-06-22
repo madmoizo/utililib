@@ -5,8 +5,9 @@
  * @return {Object} hastable using key's value as identifier for each object of the array
  */
 export default function arrayToObject (array, key) {
-  return array.reduce((obj, item) => {
+  const obj = {}
+  for (const item of array) {
     obj[item[key]] = item
-    return obj
-  }, {})
+  }
+  return obj
 }
