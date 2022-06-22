@@ -1,3 +1,10 @@
+# 1.14.0
+
+- feat: add `generateDigicode`
+- feat: add `parseCookieHeader`
+- feat: add `substringUntil`
+- feat: add `substringUntilEnd`
+
 # 1.13.0
 
 - feat: add `veryLastIndexOf`
