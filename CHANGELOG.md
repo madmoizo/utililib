@@ -1,5 +1,9 @@
 # 1.15.0
 
+- feat: add `getBase64Extension`
+
+# 1.15.0
+
 - feat: merge `veryLastIndexOf` in `substringUntilEnd`
 
 # 1.14.0

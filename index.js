@@ -6,6 +6,7 @@ export { default as capitalizeFirstLetter } from './src/capitalizeFirstLetter.js
 export { default as cloneDate } from './src/cloneDate.js'
 export { default as deduplicateArray } from './src/deduplicateArray.js'
 export { default as generateDigicode } from './src/generateDigicode.js'
+export { default as getBase64Extension } from './src/getBase64Extension.js'
 export { default as getDeepValue } from './src/getDeepValue.js'
 export { default as getFileExtension } from './src/getFileExtension.js'
 export { default as getRandomElement } from './src/getRandomElement.js'
