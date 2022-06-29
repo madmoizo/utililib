@@ -1,6 +1,6 @@
 import isUrl from './isUrl.js'
 import isBase64 from './isBase64.js'
-import getBase64Extension from './getBase64Extension.js'
+import parseBase64 from './parseBase64.js'
 
 
 /**
@@ -13,7 +13,7 @@ export default function getFileExtension (file) {
     return src.split(/[#?]/)[0].split('.').pop().trim()
   }
   if (isBase64(file)) {
-    return getBase64Extension(file)
+    return (parseBase64(file)).extension
   }
 
   return null
