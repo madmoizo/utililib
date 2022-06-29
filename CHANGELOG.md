@@ -1,3 +1,8 @@
+# 1.18.0
+
+- feat: add `getImageFromBase64`
+- feat: add `transformBase64Image`
+
 # 1.17.0
 
 - feat: add `parseBase64`
