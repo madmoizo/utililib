@@ -1,3 +1,8 @@
+# 1.17.0
+
+- feat: add `parseBase64`
+- feat: remove `getBase64Extension` (performance issue on big files)
+
 # 1.16.0
 
 - feat: add `getBase64Extension`
