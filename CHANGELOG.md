@@ -1,4 +1,4 @@
-# 1.15.0
+# 1.16.0
 
 - feat: add `getBase64Extension`
 
