@@ -8,7 +8,7 @@ export default function parseBase64 (base64) {
   const mime = metadata.split(':').pop()
   let extension = mime.split('/').pop()
   if (extension === 'jpeg') {
-    return 'jpg'
+    extension = 'jpg'
   }
 
   return {
