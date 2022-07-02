@@ -10,7 +10,7 @@ import parseBase64 from './parseBase64.js'
  */
 export default function getFileExtension (file) {
   if (isUrl(file)) {
-    return src.split(/[#?]/)[0].split('.').pop().trim()
+    return file.split(/[#?]/)[0].split('.').pop().trim()
   }
   if (isBase64(file)) {
     return (parseBase64(file)).extension
