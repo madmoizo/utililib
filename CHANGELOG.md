@@ -1,3 +1,10 @@
+# 2.0.0
+
+- breaking: rename `getImageFromBase64` into `base64ToImageElement`
+- breaking: rename `imageToBase64` into `transformImage`. remove `extension` option, add `mime` option
+- breaking: rename `transformBase64Image` into `transformImageFromBase64`
+- feat: add `getFileMime`
+
 # 1.18.0
 
 - feat: add `getImageFromBase64`
